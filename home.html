@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+ 
+  <style>
+            p.normal{
+                font-style: italic;
+            }
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding-top: 10;
+  overflow: hidden;
+  background-color:DodgerBlue;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+.footer {
+   position:fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:black;
+   color: white;
+   text-align: center;
+}
+p
+{
+    text-align:justify;
+    }
+
+h5
+{
+    text-align:justify;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 1px 2px;
+  border-radius: 50%;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-instagram {
+  background: orange;
+  color: white;
+}
+
+div.picture1 {
+   width:100px;
+   height:100px; 
+   background-image:url('/static/1.jpg')
+   margin:0; 
+   padding:0; 
+}
+img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  object-fit: contain;
+}
+
+{box-sizing: border-box;}
+
+
+.input-container {
+  display: flex;
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+
+.input-field {
+  width: 150%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.footer {
+   position:fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:black;
+   color: white;
+   text-align: center;
+}
+p
+{
+    text-align:justify;
+    }
+
+h5
+{
+    text-align:justify;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 1px 2px;
+  border-radius: 50%;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-instagram {
+  background: orange;
+  color: white;
+}
+ 
+</style>
+</head>
+<body>
+   <div style="background-color:dodgerblue">
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">REGISTER</a></li>
+            <li><a href="#">LOGIN</a></li>
+			<li><a href="#">CONTACTS</a></li>
+        </ul>
+		<ul>
+        <li><h1>CAREER GUIDE</h1></li>
+        <li><h3><A COMPLETE GUIDE TO CHOOSE YOUR CAREER></h3></li><ul>
+                <h4>Career guide is a career prediction platform for students. The system is implemented using data mining techniques.The outcome of the test is based on the personality, academic performance and various interests of the student. 
+            </h4>      
+      </div> 
+ <div class="image-wrapper">
+  <img src="/static/c5.jpg" alt="image" style="width: 100%;max-height: 100%">
+</div>
+
+
+ <div  style="background-color:dodgerblue;">
+	
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action=" {{ url_for('predict') }} " method="post">
+    <br> <br>
+    	<center><h1>HERE IS THE QUESTIONS FOR YOU.....!!!!</h1>
+	               
+                <br><br>
+                <div class="login">
+                <br> <br>
+                <h3>1.Academic Percentage in Operating Systems</h3>
+                <br> <br>
+                <span>
+		 <input type="text"  id="text1" name="text1">
+                <br><br>
+                 </span>
+               <h3>2.Academic Percentage in Algorithms</h3>
+                <br> <br>
+                <span>
+                <input type="text"  id="text2" name="text2">
+                <br><br>
+                </span>
+               <h3> 3.Academic Percentage in programming
+                <br> <br>
+                <span>
+                <input type="text" id="text3" name="text3">
+                <br><br>
+                </span>
+             <h3>4.Academic Percentage in software engineering</h3>
+                <br> <br>
+                <span>
+                <input type="text"  id="text4" name="text4">
+                <br><br>
+                 </span>
+                <h3>5.Academic Percentage in Computer networks</h3>
+                <br> <br>
+                <span>
+                <input type="text"  id="text5" name="text5">
+                <br><br>
+                </span>
+               <h3> 6.Academic Percentage in Electronic Subjects</h3>
+                <br> <br>
+                <span>
+                <input type="text" id="text6" name="text6">
+                <br><br>
+               </span>
+
+                <h3>7.Academic Percentage in Mathematics</h3>
+                <br> <br>
+                <span>
+                <input type="text" id="text7" name="text7">
+                <br><br>
+                </span>
+                <h3>8. Percentage in Communication skills</h3>
+                <br> <br>
+                <span>
+                <input type="text" id="text8" name="text8">
+                <br><br>
+                </span>
+              <h3>9.Coding skills rating</h3>
+                <br> <br>
+                <span>
+                    <select name= "codera"  >
+               <option value = "1">1</option>
+               <option value = "2">2</option>
+               <option value = "3">3</option>
+               <option value = "4">4</option>
+                        <option value = "5">5</option>
+                        <option value = "6">6</option>
+                        <option value = "7">7</option>
+                        <option value = "8">8</option>
+                        <option value = "9">9</option>
+                        <option value = "10">10</option></select>
+                <br><br>
+                </span>
+                <h3>10.Public speaking points</h3>
+                <br> <br>
+                <span>
+                    <select name= "publicsp" >
+               <option value = "1">1</option>
+               <option value = "2">2</option>
+               <option value = "3">3</option>
+               <option value = "4">4</option>
+                        <option value = "5">5</option>
+                        <option value = "6">6</option>
+                        <option value = "7">7</option>
+                        <option value = "8">8</option>
+                        <option value = "9">9</option>
+                        <option value = "10">10</option></select>
+                <br><br>
+               </span>
+              <h3>11.Can work long before system</h3>
+                <br> <br>
+                <span>
+                <input type="radio"  name="worklong" value="1"> Yes &nbsp &nbsp
+                    <input type="radio" name="worklong" value="2"> No
+                <br><br>
+        </span>
+               <h3> 12.Self learning capabilities</h3>
+                <br> <br>
+                <span>
+               <input type="radio" name="selflearn" value="1"> Yes &nbsp &nbsp
+                    <input type="radio" name="selflearn" value="2"> No
+                <br><br>
+                </span>
+               <h3> 13.Workshops</h3>
+                <br> <br>
+                <span>
+                    <select  name="select" id = "myList">
+                     <option value = "1">Cloud Computing</option>
+                      <option value = "2">Database Security</option>
+                        <option value = "3">Web Technologies</option>
+                        <option value = "4">Data Science</option>
+                        <option value = "5">Testing</option>
+                         <option value = "6">Hacking</option>
+                         <option value = "7">Game Development</option>
+                        <option value = "8">System Designing</option></select>
+                <br><br>
+                 </span>
+               <h3> 14. Reading and writing skills</h3>
+                <br> <br>
+                <span>
+               <input type="radio" name="readwrite" value="1">Excellent &nbsp
+                    <input type="radio" name="readwrite" value="2">Medium &nbsp
+                      <input type="radio" name="readwrite" value="2"> Poor
+                <br><br>
+                </span>
+               <h3> 15.Memory capabilitity score<h3>
+                <br> <br>
+                <span>
+                <input type="radio" name="memory" value="1">Excellent &nbsp
+                    <input type="radio" name="memory" value="2">Medium &nbsp
+                      <input type="radio" name="memory" value="2"> Poor
+                <br><br>
+                 </span>
+               <h3> 16.Interested Subject</h3>
+                <br> <br>
+                <span>
+                 <select  name="sbselect" id = "sbselect">
+                     <option value = "1">Cloud Computing</option>
+                      <option value = "2">Networks</option>
+                        <option value = "3">Hacking</option>
+                        <option value = "4">Computer Architechture</option>
+                        <option value = "5">Programming</option>
+                         <option value = "6">IOT</option>
+                         <option value = "7">Data Engineering</option>
+                        <option value = "8">Software Engineering</option></select>
+                <br><br>
+                  </span>
+              <h3>  17.Type of company you want to settle in</h3>
+                <br> <br>
+                <span>
+                <select   name="comselect" id = "comselect">
+                     <option value = "1">Web Services</option>
+                     <option value = "2">Saas Services</option>
+                     <option value = "3">Sales and Marketing</option>
+                     <option value = "4">Testing & maintenence Services</option>
+                     <option value = "5">Product Development</option>
+                     <option value = "6">BPA</option>
+                     <option value = "7">Product based</option>
+                     <option value = "8">Finance</option>
+                      <option value = "9">Service Based</option></select>
+                <br><br>
+                 </span>
+                <h3>18. Interested type of book</h3>
+                <br> <br>
+                <span>
+                <select  name="book" id = "book">
+                    <option value = "1">Prayer Books</option>
+                    <option value = "2">Childrens</option>
+                    <option value = "3">Travel</option>
+                    <option value = "4">Romance</option>
+                    <option value = "5">Cook book</option>
+                    <option value = "6">Self help</option>
+                    <option value = "7">Drama</option>
+                    <option value = "8">Math</option>
+                    <option value = "9">Religion/spirituality</option></select>
+                <br><br>
+                  </span>
+               <h3> 19.Gentle/Tuff Behaviour</h3>
+                <br> <br>
+                <span>
+                    <input type="radio" name="gt" value="1">Gentle &nbsp &nbsp
+                    <input type="radio" name="gt" value="2">Stubborn<br>
+                    <br><br>
+                  </span>
+               <h3> 20. Management or Technical</h3>
+                <br> <br>
+                <span>
+                    <input type="radio" name="mt" value="1">Management &nbsp &nbsp
+                    <input type="radio" name="mt" value="2">Technical<br>
+                    <br><br>
+                </span>
+               <h3> 21.Salary/Work</h3>
+                <br> <br>
+                <span>
+                    <input type="radio" name="sw" value="1">Salary &nbsp &nbsp
+                    <input type="radio" name="sw" value="2">Work<br>
+                    <br><br>
+                </span>
+                <h3>22.Hard/Smart Worker</h3>
+                <br> <br>
+                <span>
+                    <input type="radio" name="hs" value="1">Hard worker&nbsp &nbsp
+                    <input type="radio" name="hs" value="2">Smart Worker<br>
+                    <br><br>
+                </span>
+               <h3> 23. Worked in teams ever</h3>
+                <br> <br>
+                <span>
+                <input type="radio" name="wt" value="1">Yes &nbsp &nbsp
+                    <input type="radio" name="wt" value="2">No<br>
+                    <br><br>
+                </span>
+               <h3> 24.Introvert?</h3>
+                <br> <br>
+                <span>
+                    <input type="radio" name="in" value="1">Yes &nbsp &nbsp
+                    <input type="radio" name="in" value="2">No<br>
+                    <br><br>
+                </span>
+                <button type="submit" ><h3>Predict</h3></button>
+    <br><br>
+   </form>
+   </center>
+  </div>
+<div style="background-color:white">
+<center>
+<h2>WE ARE SUGGESTING YOU THE CAREER CHOICE OF A </h2>
+<h1> {{ prediction_text }} </h1>
+</div>
+    </body>
+</html>
